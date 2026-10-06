@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us — JobPortal</title>
+<style>
+:root {
+	--primary-color: #1a73e8;
+	--secondary-color: #34a853;
+	--accent-color: #fbbc05;
+	--text-light: #ffffff;
+	--text-dark: #202124;
+	--background-light: #f8f9fa;
+	--border-color: #dadce0;
+}
+
+/* Reset & Base */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; }
+body { background-color: #0f172a; color: var(--text-light); display: flex; flex-direction: column; min-height: 100vh; }
+
+/* Navbar (from homepage) */
+.navbar {
+	background-color: #202428;
+	padding: 1rem 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--text-light);
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1000;
+}
+.logo a {
+	font-size: 1.8rem;
+	font-weight: bold;
+	background: linear-gradient(90deg, #3027ae, #219a52);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-decoration: none;
+}
+.nav-buttons { display: flex; gap: 1rem; }
+.nav-btn {
+	padding: 0.5rem 1.5rem;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	color: var(--text-light);
+	background-color: transparent;
+	border: 2px solid var(--text-light);
+	transition: all 0.3s ease;
+}
+.nav-btn:hover { background-color: var(--secondary-color); color: var(--text-light); }
+
+/* Contact Section */
+.wrapper { flex: 1; max-width: 1100px; margin: 120px auto 48px; padding: 24px; }
+.grid { display: grid; gap: 22px; grid-template-columns: 1.1fr 1fr; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+	background: #111936;
+	border: 1px solid rgba(255,255,255,0.06);
+	border-radius: 18px;
+	padding: 20px;
+	box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+.section-title { font-size: 14px; text-transform: uppercase; letter-spacing: .18em; color: #a3a3a3; margin-bottom: 14px; }
+.address-block { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
+.icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(96,165,250,.12); border: 1px solid rgba(96,165,250,.25); }
+.address-lines { line-height: 1.6; }
+.address-lines b { font-size: 18px; }
+.meta { margin-top: 12px; display:grid; gap: 8px; grid-template-columns: repeat(2, minmax(0,1fr)); }
+.meta-item { background: rgba(255,255,255,.03); border: 1px dashed rgba(255,255,255,.12); padding: 12px; border-radius: 12px; font-size: 14px; }
+.actions { display:flex; flex-wrap: wrap; gap:10px; margin-top:16px; }
+button, a.btn { padding: 10px 14px; border-radius: 12px; font-weight: 600; cursor: pointer; background: rgba(96,165,250,.18); color: #fff; border: 1px solid rgba(96,165,250,.35); text-decoration: none; }
+.map-card { padding: 12px; }
+.map { width: 100%; height: 420px; border: 0; display:block; }
+
+/* Footer (from homepage) */
+footer {
+	background-color: #202428;
+	color: var(--text-light);
+	padding: 1rem;
+	text-align: center;
+}
+.footer-links { margin-bottom: 1rem; }
+.footer-links a {
+	color: var(--text-light);
+	text-decoration: none;
+	margin: 0 1rem;
+	transition: color 0.3s ease;
+}
+.footer-links a:hover { color: var(--accent-color); }
+.footer-text { font-size: 0.9rem; }
+</style>
+</head>
+<body>
+	<!-- Header -->
+	<nav class="navbar">
+		<div class="logo"><a href="/">JobPortal</a></div>
+		<div class="nav-buttons">
+			<a href="/login"><button class="nav-btn">Login</button></a>
+			<a href="/jobseeker/register"><button class="nav-btn">Register</button></a>
+		</div>
+	</nav>
+
+	<!-- Middle Contact Section -->
+	<div class="wrapper">
+		<div class="grid">
+			<section class="card">
+				<div class="section-title">Address</div>
+				<div class="address-block">
+					<div class="icon">📍</div>
+					<div class="address-lines">
+						<b>Acme Digital Pvt. Ltd.</b><br/>
+						3rd Floor, Orion Plaza<br/>
+						Kasturba Gandhi Marg<br/>
+						New Delhi – 110001, Delhi, India
+					</div>
+				</div>
+				<div class="meta">
+					<div class="meta-item"><strong>Phone:</strong> +91 98765 43210</div>
+					<div class="meta-item"><strong>Email:</strong> hello@acmedigital.in</div>
+				</div>
+				<div class="actions">
+					<button id="copyAddressBtn">Copy address</button>
+					<a class="btn" href="#">Directions</a>
+				</div>
+			</section>
+			<section class="card map-card">
+				<div class="section-title">Map</div>
+				<iframe class="map" src="https://www.openstreetmap.org/export/embed.html?bbox=77.210%2C28.625%2C77.220%2C28.630&layer=mapnik&marker=28.627%2C77.215"></iframe>
+			</section>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div class="footer-links">
+		    <a href="/">Home</a>
+			<a href="/about-us">About</a> 
+			<a href="/contact-us">Contact</a> 
+			<a href="/privacy-policy">Privacy Policy</a> 
+			<a href="/terms">Terms of Service</a>
+		</div>
+		<p class="footer-text">© 2025 JobPortal. All rights reserved.</p>
+	</footer>
+
+	<!-- Copy Address Script -->
+	<script>
+	document.getElementById("copyAddressBtn").addEventListener("click", () => {
+		const address = `Acme Digital Pvt. Ltd.
+3rd Floor, Orion Plaza
+Kasturba Gandhi Marg
+New Delhi – 110001, Delhi, India`;
+		navigator.clipboard.writeText(address).then(() => {
+			alert("Address copied to clipboard!");
+		});
+	});
+	</script>
+</body>
+</html>
